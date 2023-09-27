@@ -5,7 +5,7 @@ const hre = require("hardhat");
 async function main() {
    
   // Deploy the "VotingContract" smart contract and store the deployed contract instance.
-  const contract = await hre.ethers.deployContract("VotingContract");
+  const contract = await hre.ethers.deployContract("Voting");
 
   // Wait for the contract deployment to complete.
   await contract.waitForDeployment();
