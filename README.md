@@ -1,6 +1,7 @@
  # Voting Smart Contract Documentation
 
 This documentation provides information on the deployment and usage of the "Voting Smart Contract" on the Swisstronik Testnet using the Hardhat development environment.
+Swisstronik VotingContract contract hass been deployed to 0x3eA574B2A454FB38F5E452174115911136311818
 
 ## Table of Contents
 
@@ -64,6 +65,8 @@ To deploy the "Voting Smart Contract" on the Swisstronik Testnet, follow these s
    ```
 
    This command will deploy the contract and display the deployment address.
+
+   My contract was deployed to 0x3eA574B2A454FB38F5E452174115911136311818
 
 ## Interacting with the Contract
 
