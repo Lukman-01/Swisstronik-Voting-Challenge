@@ -1,33 +1,22 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
+// Import the Hardhat Runtime Environment (hre) module.
 const hre = require("hardhat");
 
+// Define an asynchronous function named 'main'.
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+   
+  // Deploy the "VotingContract" smart contract and store the deployed contract instance.
+  const contract = await hre.ethers.deployContract("VotingContract");
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  // Wait for the contract deployment to complete.
+  await contract.waitForDeployment();
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );
+  // Log a message indicating the deployment target address of the contract.
+  console.log(`Swisstronik VotingContract contract hass been deployed to ${contract.target}`);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+// Call the 'main' function and handle any errors that occur.
 main().catch((error) => {
   console.error(error);
+  // Set the process exit code to 1 to indicate an error occurred during execution.
   process.exitCode = 1;
 });
