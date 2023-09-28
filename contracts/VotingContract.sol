@@ -37,10 +37,10 @@ contract Voting is Ownable {
     }
 
     // Mapping to store candidate information by their Ethereum address.
-    mapping(address => Candidate) public candidates;
+    mapping(address => Candidate) private candidates;
 
     // Array to store candidate addresses for enumeration.
-    address[] public candidateAddresses;
+    address[] private candidateAddresses;
 
     // Event to log the creation of a new candidate.
     event CandidateCreated(
@@ -65,13 +65,13 @@ contract Voting is Ownable {
     }
 
     // Mapping to store voter information by their Ethereum address.
-    mapping(address => Voter) public voters;
+    mapping(address => Voter) private voters;
 
     // Array to store addresses of voters who have voted.
-    address[] public votedVoters;
+    address[] private votedVoters;
 
     // Array to store all registered voter addresses for enumeration.
-    address[] public voterAddresses;
+    address[] private voterAddresses;
 
     // Event to log the creation of a new voter.
     event VoterCreated(
